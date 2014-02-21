@@ -79,3 +79,31 @@ Migrating to CreateProduct (20140221105819)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140221105819')
   [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateIngredient (20140221105044)
+  [1m[35m (131.8ms)[0m  CREATE TABLE `ingredients` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `u_price` float) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140221105044')
+  [1m[36m (46.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProduct (20140221105819)
+  [1m[35m (113.3ms)[0m  CREATE TABLE `products` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `u_price` float) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140221105819')
+  [1m[36m (53.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DeviseCreateInstalls (20140221124236)
+  [1m[35m (122.9ms)[0m  CREATE TABLE `installs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (215.2ms)[0m  [1mCREATE UNIQUE INDEX `index_installs_on_email` ON `installs` (`email`) [0m
+  [1m[35m (180.7ms)[0m  CREATE UNIQUE INDEX `index_installs_on_reset_password_token` ON `installs` (`reset_password_token`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140221124236')
+  [1m[36m (38.7ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20140221124314)
+  [1m[35m (124.8ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (191.7ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`) [0m
+  [1m[35m (203.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140221124314')
+  [1m[36m (42.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
