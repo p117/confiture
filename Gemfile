@@ -8,6 +8,11 @@ gem 'sqlite3'
 gem 'mysql2'
 gem 'devise'
 
+gem 'bootstrap-sass'
+group :development do
+	gem 'rails-layout'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
