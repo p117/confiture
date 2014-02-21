@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221105227) do
+ActiveRecord::Schema.define(version: 20140221105819) do
+
+  create_table "ingredients", force: true do |t|
+    t.string "name"
+    t.float  "u_price"
+  end
 
   create_table "jars", force: true do |t|
     t.float  "price"
     t.string "text"
+  end
+
+  create_table "products", force: true do |t|
+    t.string "name"
+    t.float  "u_price"
   end
 
 end
