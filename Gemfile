@@ -10,7 +10,7 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 group :development do
-	gem 'rails-layout'
+	gem 'rails_layout'
 end
 
 # Use SCSS for stylesheets
