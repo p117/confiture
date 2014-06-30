@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630104245) do
+ActiveRecord::Schema.define(version: 20140630130517) do
+
+  create_table "ingredient_historics", force: true do |t|
+    t.string "name"
+    t.float  "u_price"
+  end
 
   create_table "ingredients", force: true do |t|
     t.string "name"
@@ -23,9 +28,42 @@ ActiveRecord::Schema.define(version: 20140630104245) do
     t.string "text"
   end
 
+  create_table "order_lines", force: true do |t|
+    t.integer "amount",     null: false
+    t.integer "product_id", null: false
+    t.integer "order_id",   null: false
+  end
+
+  add_index "order_lines", ["product_id", "order_id"], name: "index_order_lines_on_product_id_and_order_id", unique: true, using: :btree
+
+  create_table "orders", force: true do |t|
+    t.float    "global_price", null: false
+    t.integer  "user_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", unique: true, using: :btree
+
+  create_table "product_historics", force: true do |t|
+    t.string "name"
+    t.float  "u_price"
+    t.float  "profit"
+  end
+
+  create_table "product_lines", force: true do |t|
+    t.integer "amount",        null: false
+    t.integer "product_id",    null: false
+    t.integer "ingredient_id", null: false
+  end
+
+  add_index "product_lines", ["product_id", "ingredient_id"], name: "index_product_lines_on_product_id_and_ingredient_id", unique: true, using: :btree
+
   create_table "products", force: true do |t|
     t.string "name"
     t.float  "u_price"
+    t.float  "profit"
+    t.string "photo",   limit: 100, null: false
   end
 
   create_table "users", force: true do |t|
