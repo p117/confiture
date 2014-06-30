@@ -1,6 +1,7 @@
 *.pid
 *.log
 *.rbc
+/db/schema.rb
 capybara-*.html
 .rspec
 /log

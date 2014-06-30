@@ -12,16 +12,16 @@
 
 <%# Affichage du formulaire %>
 
-<%= form_for(@ingredient) do |post_form| %>
+<%= form_for(@ingredient) do |ingredient_form| %>
 <p>
-	<b>Title</b><br/>
-	<%= post_form.text_field :title %>
+	<%= label_tag(:name, "Name:") %>
+	<%= ingredient_form.text_field :name %>
 </p>
 <p>
-	<b>Description</b><br/>
-	<%= post_form.text_area :description %>
+	<%= label_tag(:u_price, "Unit price:") %>
+	<%= ingredient_form.text_field :u_price %>
 <p>
-	<%= post_form.submit %>
+	<%= ingredient_form.submit %>
 </p>
 <% end %>
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', ingredients_path %>

@@ -1,0 +1,13 @@
+<h1>Ingredient details</h1><hr/>
+
+<h2><strong>Name : </strong></h2><%= @ingredient.name %>
+
+  <h2><strong>Unit price : </strong></h2><%= @ingredient.u_price %>
+
+  <hr/>
+
+<%= link_to "Ingredients list", controller: "ingredients" %> | 
+<%= link_to 'Delete this ingredient', ingredient_url(:id => @ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+
