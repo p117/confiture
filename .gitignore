@@ -1,3 +1,4 @@
+*.pid
 *.log
 *.rbc
 capybara-*.html
