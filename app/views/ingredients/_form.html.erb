@@ -1,0 +1,27 @@
+<%# Gestion des erreurs %>
+
+<% if @ingredient.errors.any? %>
+<h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this post from being saved:</h2>
+<ul>
+	<% @ingredient.errors.each do |attr, msg| %>
+		<li><%= "#{attr} #{msg}\n"  if @ingredient.errors[attr].first == msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<%# Affichage du formulaire %>
+
+<%= form_for(@ingredient) do |post_form| %>
+<p>
+	<b>Title</b><br/>
+	<%= post_form.text_field :title %>
+</p>
+<p>
+	<b>Description</b><br/>
+	<%= post_form.text_area :description %>
+<p>
+	<%= post_form.submit %>
+</p>
+<% end %>
+<%= link_to 'Back', posts_path %>
