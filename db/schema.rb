@@ -83,10 +83,13 @@ ActiveRecord::Schema.define(version: 20140630135847) do
     t.string   "name"
     t.float    "u_price"
     t.float    "profit"
+    t.integer  "jar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo",      limit: 100, null: false
   end
+
+  add_index "products", ["jar_id"], name: "index_products_on_jar_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
