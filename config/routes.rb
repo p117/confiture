@@ -9,6 +9,7 @@ Confiture::Application.routes.draw do
   #get 'ingredients/new' => 'ingredients#new'
 
   resources :ingredients
+  resources :customers
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
