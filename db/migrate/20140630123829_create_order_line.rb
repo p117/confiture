@@ -4,7 +4,7 @@ class CreateOrderLine < ActiveRecord::Migration
   	t.integer :amount,              :null => false
   	t.integer :product_id,					:null => false
   	t.integer :order_id,					:null => false
-  	t.timestamp
+  	t.timestamps
     end
 		add_index :order_lines, [:product_id,:order_id],                :unique => true
   end

@@ -4,7 +4,7 @@ class CreateProductLine < ActiveRecord::Migration
 	    t.integer :amount,              :null => false
 	  	t.integer :product_id,					:null => false
 	  	t.integer :ingredient_id,					:null => false
-	  	t.timestamp
+	  	t.timestamps
     end
     add_index :product_lines, [:product_id,:ingredient_id],                :unique => true
   end

@@ -3,7 +3,7 @@ class CreateIngredientHistoric < ActiveRecord::Migration
     create_table :ingredient_historics do |t|
     	t.string :name
     	t.float :u_price
-    	t.timestamp
+    	t.timestamps
     end
   end
 end
