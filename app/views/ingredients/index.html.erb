@@ -1,0 +1,11 @@
+<h1>Ingredients list</h1>
+<ul>
+	<% @ingredients.each do |ingredient| %>
+	<li>
+		<p><strong><%= ingredient.name %></strong> - <%= ingredient.created_at %> | <%= link_to 'Show', ingredient %> | <%= link_to 'Edit', edit_ingredient_path(ingredient) %> | <%= link_to 'Delete', ingredient_url(:id => ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p> 
+	</li>
+	<% end %>
+</ul>
+
+<%= link_to "New", new_post_url() %>

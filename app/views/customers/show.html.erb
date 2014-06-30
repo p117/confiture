@@ -1,0 +1,13 @@
+<h1>Customer details</h1><hr/>
+
+<h2><strong>Name : </strong></h2><%= @customer.name %>
+
+  <h2><strong>Email adress : </strong></h2><%= @customer.email %>
+
+  <hr/>
+
+<%= link_to "Customers list", controller: "customers" %> | 
+<%= link_to 'Delete this customer', customer_url(:id => @customer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+
