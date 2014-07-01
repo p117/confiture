@@ -1,0 +1,15 @@
+<h1>Product details</h1><hr/>
+
+<h2><strong>Name : </strong></h2><%= @product.name %>
+
+  <h2><strong>Unit price : </strong></h2><%= @product.u_price %>
+  <h2><strong>Profit : </strong></h2><%= @product.profit %>
+  <h2><strong>Jar : </strong></h2><%= @product.jar_id %>
+
+  <hr/>
+
+<%= link_to "Products list", controller: "products" %> | 
+<%= link_to 'Delete this product', product_url(:id => @product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+

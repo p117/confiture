@@ -2,7 +2,7 @@
 <ul>
 	<% @products.each do |product| %>
 	<li>
-		<p><strong><%= product.text %></strong> - <%= product.created_at %> | <%= link_to 'Show', product %> | <%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Delete', product_url(:id => product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<p><strong><%= product.name %></strong> - <%= product.created_at %> | <%= link_to 'Show', product %> | <%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Delete', product_url(:id => product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 		</p> 
 	</li>
 	<% end %>

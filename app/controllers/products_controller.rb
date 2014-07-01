@@ -7,6 +7,11 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(product_params)
+    uploaded_io = params[:product][:photo]
+    p @product[:photo][:@original_filename]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+       file.write(uploaded_io.read)
+    end
     if @product.save
       redirect_to @product
     else
@@ -35,6 +40,6 @@ class ProductsController < ApplicationController
       redirect_to products_path
     end
   def product_params
-    params.require(:product).permit(:name,:u_price, :profit, :photo)
+    params.require(:product).permit(:name, :u_price, :profit, :jar_id, :photo)
   end
 end
