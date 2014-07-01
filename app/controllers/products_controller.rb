@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     uploaded_io = params[:product][:photo]
-    p @product[:photo][:@original_filename]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
        file.write(uploaded_io.read)
     end
