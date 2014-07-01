@@ -1,0 +1,27 @@
+<%# Gestion des erreurs %>
+
+<% if @jar.errors.any? %>
+<h2><%= pluralize(@jar.errors.count, "error") %> prohibited this post from being saved:</h2>
+<ul>
+	<% @jar.errors.each do |attr, msg| %>
+		<li><%= "#{attr} #{msg}\n"  if @jar.errors[attr].first == msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<%# Affichage du formulaire %>
+
+<%= form_for(@jar) do |jar_form| %>
+<p>
+	<%= label_tag(:price, "Price:") %>
+	<%= jar_form.text_field :price %>
+</p>
+<p>
+	<%= label_tag(:text, "Description:") %>
+	<%= jar_form.text_area :text %>
+<p>
+	<%= jar_form.submit %>
+</p>
+<% end %>
+<%= link_to 'Back', jars_path %>
