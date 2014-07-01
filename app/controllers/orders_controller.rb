@@ -4,10 +4,13 @@ class OrdersController < ApplicationController
   end
   def new
     @order = Order.new
+    @products = Product.all
   end
   def create
     @order = Order.new(order_params)
+    @product.customer_id = params[:customer_id][:id]
     if @order.save
+      p @order.id
       redirect_to @order
     else
       render "new"
@@ -22,7 +25,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
 
-    if @order.update(params[:order].permit(:global_price,:customer_id))
+    if @order.update(params[:order].permit(:customer_id))
         redirect_to @order
       else
         render 'edit'
@@ -35,6 +38,6 @@ class OrdersController < ApplicationController
       redirect_to orders_path
   end
   def order_params
-    params.require(:order).permit(:global_price,:customer_id)
+    params.require(:order).permit(:customer_id)
   end
 end

@@ -1,11 +1,23 @@
 <h1>Jars list</h1>
-<ul>
+<table>
+	<thead>
+		<th>Jar name</th>
+		<th>Created at</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</thead>
+	<tbody>
 	<% @jars.each do |jar| %>
-	<li>
-		<p><strong><%= jar.text %></strong> - <%= jar.created_at %> | <%= link_to 'Show', jar %> | <%= link_to 'Edit', edit_jar_path(jar) %> | <%= link_to 'Delete', jar_url(:id => jar.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-		</p> 
-	</li>
+	<tr>
+		<td><%= jar.text %></td>
+		<td><%= jar.created_at %></td>
+		<td><%= link_to 'Show', jar %></td>
+		<td><%= link_to 'Edit', edit_jar_path(jar) %></td>
+		<td><%= link_to 'Delete', jar_url(:id => jar.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 	<% end %>
-</ul>
+	</tbody>
+</table>
 
 <%= link_to "New", new_jar_url() %>

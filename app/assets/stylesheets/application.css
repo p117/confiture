@@ -11,3 +11,38 @@
  *= require_self
  *= require_tree .
  */
+ table{
+ 	margin-bottom: 10px;
+ }
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse
+}
+th,td
+{
+padding:15px !important;
+}
+th
+{
+text-align:left;
+}
+a.title{
+	color: white !important;
+	font-weight: bold;
+	font-size: 18px !important;
+}
+select[multiple]{
+	margin-bottom: 10px !important;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}
+input {
+  display: inline-block;
+  float: left;
+}

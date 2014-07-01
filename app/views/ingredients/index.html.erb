@@ -1,11 +1,23 @@
 <h1>Ingredients list</h1>
-<ul>
+<table>
+	<thead>
+		<th>Ingredient name</th>
+		<th>Created at</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</thead>
+	<tbody>
 	<% @ingredients.each do |ingredient| %>
-	<li>
-		<p><strong><%= ingredient.name %></strong> - <%= ingredient.created_at %> | <%= link_to 'Show', ingredient %> | <%= link_to 'Edit', edit_ingredient_path(ingredient) %> | <%= link_to 'Delete', ingredient_url(:id => ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-		</p> 
-	</li>
+	<tr>
+		<td><%= ingredient.name %></td>
+		<td><%= ingredient.created_at %></td>
+		<td><%= link_to 'Show', ingredient %></td>
+		<td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+		<td><%= link_to 'Delete', ingredient_url(:id => ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 	<% end %>
-</ul>
+	</tbody>
+</table>
 
-<%= link_to "New", new_ingredient_url() %>
+<%= link_to "New ingredient", new_ingredient_url() %>

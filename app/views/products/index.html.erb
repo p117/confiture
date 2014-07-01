@@ -1,11 +1,23 @@
 <h1>Products list</h1>
-<ul>
+<table>
+	<thead>
+		<th>Product name</th>
+		<th>Created at</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</thead>
+	<tbody>
 	<% @products.each do |product| %>
-	<li>
-		<p><strong><%= product.name %></strong> - <%= product.created_at %> | <%= link_to 'Show', product %> | <%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Delete', product_url(:id => product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-		</p> 
-	</li>
+	<tr>
+		<td><%= product.name %></td>
+		<td><%= product.created_at %></td>
+		<td><%= link_to 'Show', product %></td>
+		<td><%= link_to 'Edit', edit_product_path(product) %></td>
+		<td><%= link_to 'Delete', product_url(:id => product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 	<% end %>
-</ul>
+	</tbody>
+</table>
 
-<%= link_to "New", new_product_url() %>
+<%= link_to "New product", new_product_url() %>

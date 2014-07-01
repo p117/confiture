@@ -1,11 +1,23 @@
 <h1>Customers list</h1>
-<ul>
+<table>
+	<thead>
+		<th>Customer name</th>
+		<th>Created at</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</thead>
+	<tbody>
 	<% @customers.each do |customer| %>
-	<li>
-		<p><strong><%= customer.name %></strong> - <%= customer.created_at %> | <%= link_to 'Show', customer %> | <%= link_to 'Edit', edit_customer_path(customer) %> | <%= link_to 'Delete', customer_url(:id => customer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-		</p> 
-	</li>
+	<tr>
+		<td><%= customer.name %></td>
+		<td><%= customer.created_at %></td>
+		<td><%= link_to 'Show', customer %></td>
+		<td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+		<td><%= link_to 'Delete', customer_url(:id => customer.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 	<% end %>
-</ul>
+	</tbody>
+</table>
 
-<%= link_to "New", new_customer_url() %>
+<%= link_to "New customer", new_customer_url() %>
