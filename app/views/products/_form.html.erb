@@ -34,6 +34,12 @@
 	<%= file_field_tag :photo %>
 </p>
 <p>
+	<%= label_tag(:photo, "Select ingredients :") %>
+	<% @ingredients.each do |i| %>
+	<p><%= check_box_tag("product[ingredient_ids][]", i.id) %></p>
+	<% end %>
+</p>
+<p>
 	<%= product_form.submit %>
 </p>
 <% end %>
