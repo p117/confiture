@@ -24,6 +24,15 @@
 <p>
 	<%= label_tag(:profit, "Profit:") %>
 	<%= product_form.text_field :profit %>
+</p>
+<p>
+	<%= label_tag(:jar_id, "Select a jar:") %>
+	<%= collection_select(:jar, :id, Jar.all, :id, :text) %>
+</p>
+<p>
+	<%= label_tag(:photo, "Select a photo:") %>
+	<%= product_form.file_field :photo %>
+</p>
 <p>
 	<%= product_form.submit %>
 </p>
