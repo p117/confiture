@@ -14,12 +14,17 @@
 
 <%= form_for(@order) do |order_form| %>
 <p>
-	<%= label_tag(:global_price, "Global price:") %>
+	<%= label_tag(:global_price, "Global price: ") %>
 	<%= order_form.text_field :global_price %>
 </p>
 <p>
-	<%= label_tag(:customer_id, "Customer") %>
+	<%= label_tag(:customer_id, "Customer: ") %>
 	<%= collection_select(:customer, :id, Customer.all, :id, :name) %>
+</p>
+<p>
+	<%= label_tag(:customer_id, "Product: ") %>
+	<%= collection_select(:customer, :id, Product.all, :product_id, :name) %>
+</p>
 <p>
 	<%= order_form.submit %>
 </p>
