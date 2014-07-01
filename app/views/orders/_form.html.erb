@@ -18,8 +18,8 @@
 	<%= order_form.text_field :global_price %>
 </p>
 <p>
-	<%= label_tag(:customer_id, "Customer id") %>
-	<%= order_form.text_area :customer_id %>
+	<%= label_tag(:customer_id, "Customer") %>
+	<%= collection_select(:customer, :id, Customer.all, :id, :name) %>
 <p>
 	<%= order_form.submit %>
 </p>

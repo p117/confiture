@@ -33,9 +33,6 @@ class OrdersController < ApplicationController
     @order.destroy
  
       redirect_to orders_path
-    end
-  def get_customers
-    @customer = Customer.all
   end
   def order_params
     params.require(:order).permit(:global_price,:customer_id)
