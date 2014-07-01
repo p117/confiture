@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   end
   def new
     @product = Product.new
+    @ingredients = Ingredient.all
   end
   def create
     @product = Product.new(product_params)
