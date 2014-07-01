@@ -7,6 +7,6 @@ class CreateOrder < ActiveRecord::Migration
       #date
       t.timestamps
     end
-    add_index :orders, :customer_id,                :unique => true
+    add_index :orders, :customer_id
   end
 end

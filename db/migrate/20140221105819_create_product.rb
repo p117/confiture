@@ -7,6 +7,6 @@ class CreateProduct < ActiveRecord::Migration
     	t.integer :jar_id
     	t.timestamps
     end
-    add_index :products, :jar_id,                :unique => true
+    add_index :products, :jar_id
   end
 end

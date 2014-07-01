@@ -8,10 +8,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     uploaded_io = params[:photo]
-    @product.photo = uploaded_io.original_filename
     @product.jar_id = params[:jar_id][:id]
+    ext = uploaded_io.original_filename.split('.').last.to_s
+    picture = Time.now.to_i.to_s+"."+ext
+    @product.photo = picture
     if @product.save
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+      File.open(Rails.root.join('public', 'uploads', @product.photo), 'wb') do |file|
        file.write(uploaded_io.read)
       end
       redirect_to @product
