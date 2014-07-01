@@ -1,13 +1,13 @@
-<h1>Jar details</h1><hr/>
+<h1>Order details</h1><hr/>
 
-<h2><strong>Price : </strong></h2><%= @jar.price %>
+<h2><strong>Price : </strong></h2><%= @order.price %>
 
-  <h2><strong>Description : </strong></h2><%= @jar.text %>
+  <h2><strong>Description : </strong></h2><%= @order.text %>
 
   <hr/>
 
-<%= link_to "Jars list", controller: "jars" %> | 
-<%= link_to 'Delete this jar', jar_url(:id => @jar.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Orders list", controller: "orders" %> | 
+<%= link_to 'Delete this order', order_url(:id => @order.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
 

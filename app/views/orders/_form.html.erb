@@ -1,10 +1,10 @@
 <%# Gestion des erreurs %>
 
-<% if @jar.errors.any? %>
-<h2><%= pluralize(@jar.errors.count, "error") %> prohibited this post from being saved:</h2>
+<% if @order.errors.any? %>
+<h2><%= pluralize(@order.errors.count, "error") %> prohibited this post from being saved:</h2>
 <ul>
-	<% @jar.errors.each do |attr, msg| %>
-		<li><%= "#{attr} #{msg}\n"  if @jar.errors[attr].first == msg %></li>
+	<% @order.errors.each do |attr, msg| %>
+		<li><%= "#{attr} #{msg}\n"  if @order.errors[attr].first == msg %></li>
 	<% end %>
 </ul>
 <% end %>
@@ -12,16 +12,16 @@
 
 <%# Affichage du formulaire %>
 
-<%= form_for(@jar) do |jar_form| %>
+<%= form_for(@order) do |order_form| %>
 <p>
-	<%= label_tag(:price, "Price:") %>
-	<%= jar_form.text_field :price %>
+	<%= label_tag(:global_price, "Global price:") %>
+	<%= order_form.text_field :global_price %>
 </p>
 <p>
-	<%= label_tag(:text, "Description:") %>
-	<%= jar_form.text_area :text %>
+	<%= label_tag(:customer_id, "Customer id") %>
+	<%= order_form.text_area :customer_id %>
 <p>
-	<%= jar_form.submit %>
+	<%= order_form.submit %>
 </p>
 <% end %>
-<%= link_to 'Back', jars_path %>
+<%= link_to 'Back', orders_path %>

@@ -1,11 +1,11 @@
-<h1>Jars list</h1>
+<h1>Orders list</h1>
 <ul>
-	<% @jars.each do |jar| %>
+	<% @orders.each do |order| %>
 	<li>
-		<p><strong><%= jar.text %></strong> - <%= jar.created_at %> | <%= link_to 'Show', jar %> | <%= link_to 'Edit', edit_jar_path(jar) %> | <%= link_to 'Delete', jar_url(:id => jar.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<p><strong><%= order.text %></strong> - <%= order.created_at %> | <%= link_to 'Show', order %> | <%= link_to 'Edit', edit_order_path(order) %> | <%= link_to 'Delete', order_url(:id => order.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 		</p> 
 	</li>
 	<% end %>
 </ul>
 
-<%= link_to "New", new_jar_url() %>
+<%= link_to "New", new_order_url() %>
