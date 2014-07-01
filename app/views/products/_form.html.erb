@@ -1,0 +1,31 @@
+<%# Gestion des erreurs %>
+
+<% if @product.errors.any? %>
+<h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved:</h2>
+<ul>
+	<% @product.errors.each do |attr, msg| %>
+		<li><%= "#{attr} #{msg}\n"  if @product.errors[attr].first == msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<%# Affichage du formulaire %>
+
+<%= form_for(@product) do |product_form| %>
+<p>
+	<%= label_tag(:name, "Name:") %>
+	<%= product_form.text_field :name %>
+</p>
+<p>
+	<%= label_tag(:u_price, "Unit price:") %>
+	<%= product_form.text_field :u_price %>
+<p>
+<p>
+	<%= label_tag(:profit, "Profit:") %>
+	<%= product_form.text_field :profit %>
+<p>
+	<%= product_form.submit %>
+</p>
+<% end %>
+<%= link_to 'Back', products_path %>

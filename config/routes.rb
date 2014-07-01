@@ -12,6 +12,7 @@ Confiture::Application.routes.draw do
   resources :customers
   resources :jars
   resources :products
+  resources :orders
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
