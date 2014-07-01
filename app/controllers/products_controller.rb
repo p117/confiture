@@ -7,12 +7,13 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(product_params)
-    uploaded_io = params[:product][:photo]
-    p @product[:photo][:@original_filename]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+    uploaded_io = params[:photo]
+    @product.photo = uploaded_io.original_filename
+    @product.jar_id = params[:jar_id][:id]
+    if @product.save
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
        file.write(uploaded_io.read)
     end
-    if @product.save
       redirect_to @product
     else
       render "new"
