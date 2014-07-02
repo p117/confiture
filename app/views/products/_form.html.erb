@@ -26,21 +26,25 @@
 	<%= label_tag(:jar_id, "Select a jar:") %>
 	<%= collection_select(:jar_id, :id, Jar.all, :id, :text) %>
 </p>
+<% if @ingredients %>
 <p>
 	<%= label_tag(:photo, "Select a photo:") %>
 	<%= file_field_tag :photo %>
 </p>
+<% end %>
 </div>
-<div class="pull-left">
-<p>
-	<strong>Select ingredients : </strong>
-	<% a = 0 %>
-	<% @ingredients.each do |i| %>
-	<p><label for=<%= "ingredient_ids["+a.to_s+"]" %> style="min-width:100px;"><%= i.name %></label>  <input type="number" name=<%= "ingredient_ids["+i.id.to_s+"]" %> id=<%= "ingredient_ids["+a.to_s+"]" %> min="0" /> </p>
-	<% a = a+1 %>
-	<% end %>
-</p>
-</div>
+<% if @ingredients %>
+	<div class="pull-left">
+		<p>
+			<strong>Select ingredients : </strong>
+			<% a = 0 %>
+			<% @ingredients.each do |i| %>
+			<p><label for=<%= "ingredient_ids["+a.to_s+"]" %> style="min-width:100px;"><%= i.name %></label>  <input type="number" name=<%= "ingredient_ids["+i.id.to_s+"]" %> id=<%= "ingredient_ids["+a.to_s+"]" %> min="0" /> </p>
+			<% a = a+1 %>
+			<% end %>
+		</p>
+	</div>
+<% end %>
 <div class="clr"></div>
 <div class="pull-left">
 	<p>

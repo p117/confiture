@@ -21,6 +21,28 @@ class Product < ActiveRecord::Base
   	end
   	u_price = u_price + profit + jar.price
   end
+  def save_product_dependencies(ing,uploaded_io)
+    cpt = 0
+    ing.each do |i|
+      self.add_order_line(i,cpt)
+      cpt = cpt+1
+    end
+    upload_picture(uploaded_io)
+  end
+  def upload_picture(uploaded_io)
+    self.u_price = self.get_u_price
+    if uploaded_io
+      ext = uploaded_io.original_filename.split('.').last.to_s
+      picture = Time.now.to_i.to_s+"."+ext
+      self.photo = picture
+    end
+    self.save
+    if self.photo
+      File.open(Rails.root.join('public', 'uploads', self.photo), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+    end
+  end
 end
 
 
