@@ -8,9 +8,9 @@
 
   <hr/>
 
-<%= link_to "Customers list", controller: "customers" %> | 
-<%= link_to "New customer", new_customer_url() %> |
-<%= link_to 'Delete this customer', customer_url(:id => @customer.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Customers list", {controller: "customers"}, class: "btn" %> 
+<%= link_to "New customer", new_customer_url(), class: "btn" %> 
+<%= link_to 'Delete this customer', customer_url(:id => @customer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 
 
 

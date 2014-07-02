@@ -7,7 +7,7 @@
   <h2><strong>Jar : </strong></h2><%= @product.jar_id %>
   <hr/>
 
-<%= link_to "Products list", {controller: "products"}, class: "btn" %> | 
+<%= link_to "Products list", {controller: "products"}, class: "btn" %> 
 <%= link_to 'Delete this product', product_url(:id => @product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 
 
