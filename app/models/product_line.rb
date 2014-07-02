@@ -1,6 +1,6 @@
 class ProductLine < ActiveRecord::Base
-  has_one :products
-  has_one :ingredients
+  belongs_to :product
+  belongs_to :ingredient
 
   validates :amount , presence: true
   validates :product_id , presence: true

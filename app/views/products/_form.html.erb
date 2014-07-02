@@ -13,14 +13,11 @@
 <%# Affichage du formulaire %>
 
 <%= form_for(@product, html: {multipart: true}) do |product_form| %>
+<div class="pull-left" style="margin-right:50px;">
 <p>
 	<%= label_tag(:name, "Name:") %>
 	<%= product_form.text_field :name %>
 </p>
-<p>
-	<%= label_tag(:u_price, "Unit price:") %>
-	<%= product_form.text_field :u_price %>
-<p>
 <p>
 	<%= label_tag(:profit, "Profit:") %>
 	<%= product_form.text_field :profit %>
@@ -33,14 +30,22 @@
 	<%= label_tag(:photo, "Select a photo:") %>
 	<%= file_field_tag :photo %>
 </p>
+</div>
+<div class="pull-left">
 <p>
-	<%= label_tag(:photo, "Select ingredients :") %>
+	<strong>Select ingredients : </strong>
+	<% a = 0 %>
 	<% @ingredients.each do |i| %>
-	<p><%= check_box_tag("product[ingredient_ids][]", i.id) %></p>
+	<p><label for=<%= "ingredient_ids["+a.to_s+"]" %> style="min-width:100px;"><%= i. %></label>  <input type="number" name=<%= "ingredient_ids["+i.id.to_s+"]" %> min="0" /> </p>
+	<% a = a+1 %>
 	<% end %>
 </p>
-<p>
-	<%= product_form.submit %>
-</p>
-<% end %>
-<%= link_to 'Back', products_path %>
+</div>
+<div class="clr"></div>
+<div class="pull-left">
+	<p>
+		<%= product_form.submit %>
+	</p>
+	<% end %>
+	<%= link_to 'Back', products_path %>
+</div>
