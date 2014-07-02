@@ -8,10 +8,11 @@ class OrdersController < ApplicationController
   end
   def create
     @order = Order.new(order_params)
-    @order.global_price = 10
+    @products = params[:product]
+    @price = @order.calculate_price(@products)
+    @order.global_price = @price
     if @order.save
-      OrderLine.new(@order.id, @order.customer_id)
-      p @order.id
+      @order.create_orderline(@products, @order.id)
       redirect_to @order
     else
       render "new"
@@ -19,13 +20,14 @@ class OrdersController < ApplicationController
   end
   def show 
     @order = Order.find(params[:id])
+    @customer = Customer.find(@order.customer_id)
+    @order_lines = OrderLine.where(order_id: @order.id)
   end
   def edit
     @order = Order.find(params[:id])
   end
   def update
     @order = Order.find(params[:id])
-
     if @order.update(params[:order].permit(:customer_id))
         redirect_to @order
       else
@@ -40,5 +42,10 @@ class OrdersController < ApplicationController
   end
   def order_params
     params.require(:order).permit(:customer_id)
+  end
+  helper_method :find_product
+  def find_product(product_id)
+    @product = Product.find(product_id)
+    return @product.name
   end
 end

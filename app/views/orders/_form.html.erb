@@ -20,8 +20,8 @@
 	<% if @products %>
 	<% @products.each do |product| %>
 	<div>
-        <label for=<%= product.name %>><%= product.name %></label>
-        <input type="number" name="howmuch" min="0" id=<%= product.id %>>
+        <label for=<%= product.id %>><%= product.name %></label>
+        <input type="number" name=<%= "product[" + product.id.to_s + "]" %> min="0" id=<%= product.id %>>
     </div>
 
   <% end %>
