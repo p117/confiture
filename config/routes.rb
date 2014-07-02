@@ -13,6 +13,8 @@ Confiture::Application.routes.draw do
   resources :jars
   resources :products
   resources :orders
+
+  get '/admin' => 'mailer#index'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
