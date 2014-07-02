@@ -35,11 +35,8 @@ a.title{
 select[multiple]{
 	margin-bottom: 10px !important;
 }
-<<<<<<< HEAD
 label{min-width:100px;}
 .clr{clear:both;}
-=======
 hr{
    border-top: 1px solid #333333 !important;
 }
->>>>>>> 24bb343a4314068c758f2c82a84115c7af87cd54

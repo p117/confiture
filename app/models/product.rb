@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 
-  has_many :product_lines
+  has_many :product_lines, :dependent => :delete_all
   has_many :ingredients, through: :product_lines
   belongs_to :jar
   has_many :order_lines
@@ -9,18 +9,18 @@ class Product < ActiveRecord::Base
   validates :name , presence: true
   validates :u_price , presence: true
   validates :profit , presence: true
-  #validates :jar_id, presence: true
-  #validates :photo , presence: true
 
   def add_order_line(ingredient,cpt)
     @pl = ProductLine.new({amount: ingredient[1],product_id: self.id,ingredient_id: ingredient[0]})
     @pl.save
   end
   def get_u_price
-  	self.u_price = 0
-  	self.ingredients.each do |i|
-  		self.u_price = self.u_price.to_f + i.u_price.to_f
+  	u_price = 0.0
+  	ingredients.each do |i|
+  		u_price = u_price + (i.u_price*product_lines.where(:product_id => id,:ingredient_id => i.id).first.amount)
   	end
-  	self.u_price.to_f = self.u_price.to_f + self.profit.to_f + self.jar.price.to_f
+  	u_price = u_price + profit + jar.price
   end
 end
+
+

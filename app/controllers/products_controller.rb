@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
         cpt = cpt+1
       end
       @product.u_price = @product.get_u_price
+      @product.save
       if @product.photo
         File.open(Rails.root.join('public', 'uploads', @product.photo), 'wb') do |file|
           file.write(uploaded_io.read)
