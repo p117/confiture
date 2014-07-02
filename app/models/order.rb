@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
-  has_many :order_lines
-  has_many :products, through: :order_lines
-  has_one :customer
+  has_many :order_lines, :dependent => :delete_all
+  has_many :products, through: :order_lines 
+  belongs_to :customer
 
   validates :customer_id , presence: true
 
@@ -21,5 +21,4 @@ class Order < ActiveRecord::Base
         end
       end
   end
-
 end
