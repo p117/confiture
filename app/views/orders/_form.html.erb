@@ -18,13 +18,18 @@
 	<%= select_tag("order[customer_id]", options_from_collection_for_select(Customer.all, :id, :name)) %>
 </p>
 	<% if @products %>
+	<table>
+		<tr>
+			<th>Product</th>
+			<th>Amount</th>
+		</tr>
 	<% @products.each do |product| %>
-	<div>
-        <label for=<%= product.id %>><%= product.name %></label>
-        <input type="number" name=<%= "product[" + product.id.to_s + "]" %> min="0" id=<%= product.id %>>
-    </div>
-
+	<tr>
+        <td><label for=<%= product.id %>><%= product.name %></label></td>
+        <td><input type="number" name=<%= "product[" + product.id.to_s + "]" %> min="0" id=<%= product.id %>></td>
+    </tr>
   <% end %>
+  </table>
 <% end %>
 
 <p>
@@ -32,4 +37,4 @@
 </p>
 <% end %>
 
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Back', orders_path, class: "btn" %>

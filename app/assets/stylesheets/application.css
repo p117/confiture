@@ -40,3 +40,10 @@ label{min-width:100px;}
 hr{
    border-top: 1px solid #333333 !important;
 }
+.btn{
+	background: #428bca;
+	color: #333333;
+}
+.btn:hover{
+	color: white !important;
+}
