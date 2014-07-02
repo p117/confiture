@@ -14,6 +14,7 @@ Confiture::Application.routes.draw do
   resources :products
   resources :orders
   
+  get 'historics' => 'historics#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
