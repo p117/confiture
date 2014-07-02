@@ -36,7 +36,7 @@
 	<strong>Select ingredients : </strong>
 	<% a = 0 %>
 	<% @ingredients.each do |i| %>
-	<p><label for=<%= "ingredient_ids["+a.to_s+"]" %> style="min-width:100px;"><%= i. %></label>  <input type="number" name=<%= "ingredient_ids["+i.id.to_s+"]" %> min="0" /> </p>
+	<p><label for=<%= "ingredient_ids["+a.to_s+"]" %> style="min-width:100px;"><%= i[0] %></label>  <input type="number" name=<%= "ingredient_ids["+i.id.to_s+"]" %> min="0" /> </p>
 	<% a = a+1 %>
 	<% end %>
 </p>

@@ -1,14 +1,10 @@
 class Product < ActiveRecord::Base
-<<<<<<< HEAD
+
   has_many :product_lines
   has_many :ingredients, through: :product_lines
   belongs_to :jar
-=======
-  has_many :ingredients
-  has_one :jar
   has_many :order_lines
   has_many :orders, through: :order_lines
->>>>>>> 24bb343a4314068c758f2c82a84115c7af87cd54
 
   validates :name , presence: true
   validates :u_price , presence: true
