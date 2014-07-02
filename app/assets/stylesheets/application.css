@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
- table{
+table {
  	margin-bottom: 10px;
  }
 table,th,td
@@ -34,4 +34,7 @@ a.title{
 }
 select[multiple]{
 	margin-bottom: 10px !important;
+}
+hr{
+   border-top: 1px solid #333333 !important;
 }

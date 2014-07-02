@@ -1,12 +1,28 @@
 <h1>Order details</h1><hr/>
 
-<h2><strong>Id : </strong></h2><%= @order.id %>
+<h2>Order N°<strong><%= @order.id %></strong></h2>
 
-  <h2><strong>Customer : </strong></h2><%= @order.customer_id %>
+  <h2>Customer : <strong><%= @customer.name %></strong></h2>
 
+  <table>
+  	<tr>
+  		<th>Product name</th>
+  		<th>Unit price</th>
+  		<th>Amount</th>
+  	</tr>
+  	<% @order_lines.each do |line| %>
+  		<tr>
+  			<td><%= line.product.name %></td>
+  		    <td><%= line.product.u_price %></td>
+  		    <td><%= line.amount %></td>
+  		</tr>
+  	<% end %>
+  </table>
+  <h2>Total: <strong><%= @order.global_price %> €</strong></h2>
   <hr/>
 
 <%= link_to "Orders list", controller: "orders" %> | 
+<%= link_to "New order", new_order_url() %> |
 <%= link_to 'Delete this order', order_url(:id => @order.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 

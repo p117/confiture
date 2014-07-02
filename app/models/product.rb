@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
   has_many :ingredients
-  has_one :jars
+  has_one :jar
+  has_many :order_lines
+  has_many :orders, through: :order_lines
 
   validates :name , presence: true
   validates :u_price , presence: true

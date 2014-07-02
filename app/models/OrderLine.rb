@@ -1,12 +1,8 @@
 class OrderLine < ActiveRecord::Base
-  has_one :products
-  has_one :orders
+  belongs_to :product
+  belongs_to :order
 
   validates :amount , presence: true
   validates :product_id , presence: true
   validates :order_id , presence: true
-
-  def method_name
-  	
-  end
 end
