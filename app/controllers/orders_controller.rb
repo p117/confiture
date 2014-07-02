@@ -8,8 +8,9 @@ class OrdersController < ApplicationController
   end
   def create
     @order = Order.new(order_params)
-    @product.customer_id = params[:customer_id][:id]
+    @order.global_price = 10
     if @order.save
+      OrderLine.new(@order.id, @order.customer_id)
       p @order.id
       redirect_to @order
     else

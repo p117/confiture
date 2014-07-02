@@ -35,14 +35,3 @@ a.title{
 select[multiple]{
 	margin-bottom: 10px !important;
 }
-label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 250px;
-    text-align: right;
-}
-input {
-  display: inline-block;
-  float: left;
-}
