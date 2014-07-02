@@ -10,6 +10,9 @@ class Product < ActiveRecord::Base
   validates :u_price , presence: true
   validates :profit , presence: true
 
+  after_create(on :create) do 
+    @ph = ProductHistoric.create(self)
+  end
   def add_order_line(ingredient,cpt)
     @pl = ProductLine.new({amount: ingredient[1],product_id: self.id,ingredient_id: ingredient[0]})
     @pl.save
