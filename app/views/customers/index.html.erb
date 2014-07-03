@@ -20,5 +20,7 @@
 			<% end %>
 			</tbody>
 		</table>
+	<% else %>
+		<p>There is no customers in the database</p>
 	<% end %>
 <%= link_to "New customer", new_customer_url(), class: "btn" %>

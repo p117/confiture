@@ -1,6 +1,6 @@
 <section class="pull-left">
 	<h2>Products historic</h2>
-	<% if @ingredients.length > 0 %>
+	<% if @products.length > 0 %>
 		<table>
 			<thead>
 				<tr>
@@ -15,5 +15,7 @@
 				<% end %>
 			</tbody>
 		</table>
+	<% else %>
+		<p>There is no product in the database</p>
 	<% end %>
 </section>
