@@ -1,8 +1,9 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "pierre.lecigne@cifacom.com"
 
   def confiture_email(customer)
-    @customer = customer
+  	@customer = customer
+  	p @customer.email
     mail(to: @customer.email, subject: 'We are going to product new confitures !')
   end
 end

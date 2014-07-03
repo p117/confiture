@@ -14,7 +14,8 @@ Confiture::Application.routes.draw do
   resources :products
   resources :orders
 
-  get '/admin' => 'mailer#index'
+  get 'mail' => 'mailer#index'
+  get 'mail/send' => 'mailer#send_email'
   
   get 'historics' => 'historics#index'
   # Example of regular route:
