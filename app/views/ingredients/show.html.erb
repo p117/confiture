@@ -7,6 +7,7 @@
   <hr/>
 
 <%= link_to "Back to ingredients list", {controller: "ingredients"}, class: "btn" %>
+<%= link_to "New ingredient", new_ingredient_url(), class: "btn" %> 
 <%= link_to 'Delete this ingredient', ingredient_url(:id => @ingredient.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 
 
