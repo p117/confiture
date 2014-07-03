@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "pierre.lecigne@cifacom.com"
+  default from: "pierre.lecigne@gmail.com"
 
   def confiture_email(customer)
   	@customer = customer

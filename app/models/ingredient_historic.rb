@@ -1,6 +1,6 @@
 class IngredientHistorics < ActiveRecord::Base
 
-	validates :name, presence: true
+	validates :ingredient_id, presence: true
 	validates :u_price, presence: true
 
 end

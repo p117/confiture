@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_filter :check_access
+
   def index
     @orders = Order.all
   end

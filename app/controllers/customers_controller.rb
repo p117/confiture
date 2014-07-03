@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_filter :check_access
+
   def index
     @customers = Customer.all
   end

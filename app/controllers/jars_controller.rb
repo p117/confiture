@@ -1,4 +1,6 @@
 class JarsController < ApplicationController
+  before_filter :check_access
+
   def index
     @jars = Jar.all
   end
