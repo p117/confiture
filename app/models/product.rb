@@ -10,14 +10,13 @@ class Product < ActiveRecord::Base
   validates :u_price , presence: true
   validates :profit , presence: true
 
-  after_save :save_historic
+  after_update :save_historic
   def save_historic
     @pht = self.attributes
     @pht["product_id"] = @pht["id"]
     @pht.delete('id')
     @pht.delete('photo')
     @pht.delete('jar_id')
-    @pht.delete('name')
     @ph = ProductHistoric.create(@pht)
   end
   def add_order_line(ingredient,cpt)

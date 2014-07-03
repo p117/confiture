@@ -16,7 +16,7 @@ Confiture::Application.routes.draw do
 
   get '/admin' => 'mailer#index'
   
-  get 'historics' => 'historics#index'
+  get 'historics' => 'historics#index', as: 'historics'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

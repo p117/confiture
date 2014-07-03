@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     @product.jar_id = params[:jar_id][:id]
     @ingredients = params[:ingredient_ids]
     @product.u_price = 0
-    if @product.save
+    if @product.save(:validate => false)
       @product.save_product_dependencies(@ingredients,uploaded_io)
       redirect_to @product
     else

@@ -1,7 +1,10 @@
 <h1>Product details</h1><hr/>
 
 	<h2><strong>Name : </strong></h2><%= @product.name %>
-	<h2><strong>Picture : </strong></h2><img src=<%= "/uploads/"+@product.photo %> alt=<%= @product.name %> style="margin:0;width:200px;max-height:200px;height:auto;" />
+	<% if @product.photo %>
+		<h2><strong>Picture : </strong></h2>
+		<img src=<%= "/uploads/"+@product.photo %> alt=<%= @product.name %> style="margin:0;width:200px;max-height:200px;height:auto;" />
+	<% end %>
   <h2><strong>Unit price : </strong></h2><%= @product.u_price %> €
   <h2><strong>Profit : </strong></h2><%= @product.profit %> €
   <h2><strong>Jar : </strong></h2><%= @product.jar_id %>

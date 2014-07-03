@@ -60,3 +60,5 @@ input[type=submit]{
 input[type=submit]:hover{
 	color: white;
 }
+thead{background-color:#bbb;}
+section.pull-left{margin:0 5%;}
