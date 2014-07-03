@@ -1,14 +1,35 @@
 <h1>Product details</h1><hr/>
-
-	<h2><strong>Name : </strong></h2><%= @product.name %>
+<div class="res">
+	<h3>Name : <strong><%= @product.name %></strong></h3>
 	<% if @product.photo %>
-		<h2><strong>Picture : </strong></h2>
-		<img src=<%= "/uploads/"+@product.photo %> alt=<%= @product.name %> style="margin:0;width:200px;max-height:200px;height:auto;" />
-	<% end %>
-  <h2><strong>Unit price : </strong></h2><%= @product.u_price %> €
-  <h2><strong>Profit : </strong></h2><%= @product.profit %> €
-  <h2><strong>Jar : </strong></h2><%= @product.jar_id %>
-  <hr/>
+	<img src=<%= "/uploads/"+@product.photo %> alt=<%= @product.name %> style="margin:0;width:200px;max-height:200px;height:auto;" /><% end %>
+  <h4>Unit price : <strong><%= @product.u_price %> €</strong></h4>
+  <h4>Profit : <strong><%= @product.profit %> €</strong></h4>
+  <h4>Jar : <strong><%= @product.jar.text %></strong></h4>
+</div>
+<div class="tab-res">
+  <h3><strong>Ingredients list : </strong></h3>
+  <table>
+  	<thead>
+  		<tr>
+  			<th>Ingredient name</th>
+  			<th>Unit price</th>
+  			<th>Amount</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% @product_lines.each do |line| %>
+  		<tr>
+  			<td><%= line.ingredient.name %></td>
+  		    <td><%= line.ingredient.u_price %></td>
+  		    <td><%= line.amount %></td>
+  		</tr>
+  	<% end %>
+  	</tbody>
+  </table>
+</div>
+<div class="clr"></div>
+    <hr/>
 
 <%= link_to "Products list", {controller: "products"}, class: "btn" %> 
 <%= link_to 'Delete this product', product_url(:id => @product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>

@@ -8,25 +8,29 @@
 
 
   <table>
+    <thead>
   	<tr>
   		<th>Product name</th>
   		<th>Unit price</th>
   		<th>Amount</th>
   	</tr>
+  </thead>
+  <tbody>
   	<% @order_lines.each do |line| %>
   		<tr>
-  			<td><%= line.product.name %></td>
+  			  <td><%= line.product.name %></td>
   		    <td><%= line.product.u_price %></td>
   		    <td><%= line.amount %></td>
   		</tr>
   	<% end %>
+  </tbody>
   </table>
   <h2>Total: <strong><%= @order.global_price %> €</strong></h2>
   <hr/>
 
-<%= link_to "Orders list", {controller: "orders"} %> | 
-<%= link_to "New order", new_order_url() %> |
-<%= link_to 'Delete this order', order_url(:id => @order.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Orders list", {controller: "orders"}, class: "btn" %>
+<%= link_to "New order", new_order_url(), class: "btn" %>
+<%= link_to 'Delete this order', order_url(:id => @order.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 
 
 

@@ -1,5 +1,5 @@
 <h1>Orders list</h1>
-<% if @orders %>
+<% if @orders.length > 0 %>
 	<table>
 		<thead>
 			<th>Order N°</th>
@@ -23,7 +23,7 @@
 		</tbody>
 	</table>
 <% else %>
-	<p>No order</p>
+	<p>No orders found</p>
 <% end %>
 
 <%= link_to "New order", new_order_url(), class: "btn" %>

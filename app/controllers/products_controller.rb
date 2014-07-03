@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  
+  before_filter :check_access, :only => [:new, :edit, :update, :destroy]
+
   def index
     @products = Product.all
   end
@@ -22,6 +23,7 @@ class ProductsController < ApplicationController
   end
   def show 
     @product = Product.find(params[:id])
+    @product_lines = ProductLine.where(product_id: @product.id)
     
   end
   def edit

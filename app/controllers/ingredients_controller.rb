@@ -1,4 +1,6 @@
 class IngredientsController < ApplicationController
+  before_filter :check_access
+
   def index
     @ingredients = Ingredient.all
   end
