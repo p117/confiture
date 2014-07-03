@@ -1,8 +1,8 @@
 class CreateIngredientHistoric < ActiveRecord::Migration
   def change
     create_table :ingredient_historics do |t|
-    	t.string :name
-    	t.float :u_price
+    	t.string :ingredient_id, null => false
+    	t.float :u_price, null => false
     	t.timestamps
     end
   end
