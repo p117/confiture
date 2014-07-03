@@ -1,17 +1,19 @@
 <section class="pull-left">
 	<h2>Products historic</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>Product ID</th><th>Name</th><th>Price</th><th>Profit</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @products.each do |p| %>
-			<tr>
-				<td><%= p.product_id %></td><td><%= Product.exists?(p.product_id) ? link_to(p.name,"products/"+p.product_id.to_s) : p.name %></td><td><%= p.u_price %> €</td><td><%= p.profit %> €</td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<% if @ingredients.length > 0 %>
+		<table>
+			<thead>
+				<tr>
+					<th>Product ID</th><th>Name</th><th>Price</th><th>Profit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each do |p| %>
+				<tr>
+					<td><%= p.product_id %></td><td><%= Product.exists?(p.product_id) ? link_to(p.name,"products/"+p.product_id.to_s) : p.name %></td><td><%= p.u_price %> €</td><td><%= p.profit %> €</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </section>

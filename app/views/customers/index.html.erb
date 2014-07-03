@@ -1,23 +1,24 @@
 <h1>Customers list</h1>
-<table>
-	<thead>
-		<th>Customer name</th>
-		<th>Created at</th>
-		<th>Show</th>
-		<th>Edit</th>
-		<th>Delete</th>
-	</thead>
-	<tbody>
-	<% @customers.each do |customer| %>
-	<tr>
-		<td><%= customer.name %></td>
-		<td><%= customer.created_at %></td>
-		<td><%= link_to 'Show', customer %></td>
-		<td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-		<td><%= link_to 'Delete', customer_url(:id => customer.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
+	<% if @customers.length > 0 %>
+		<table>
+			<thead>
+				<th>Customer name</th>
+				<th>Created at</th>
+				<th>Show</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+			<% @customers.each do |customer| %>
+			<tr>
+				<td><%= customer.name %></td>
+				<td><%= customer.created_at %></td>
+				<td><%= link_to 'Show', customer %></td>
+				<td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+				<td><%= link_to 'Delete', customer_url(:id => customer.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+			</tbody>
+		</table>
 	<% end %>
-	</tbody>
-</table>
-
 <%= link_to "New customer", new_customer_url(), class: "btn" %>

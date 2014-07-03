@@ -1,17 +1,19 @@
 <section class="pull-left">
 	<h2>Ingredients historic</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>Ingredient ID</th><th>Name</th><th>Price</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @ingredients.each do |i| %>
-			<tr>
-				<td><%= i.ingredient_id %></td><td><%= Ingredient.exists?(i.ingredient_id) ? link_to(i.name,"ingredients/"+i.ingredient_id.to_s) : i.name %></td><td><%= i.u_price %> €</td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<% if @ingredients.length > 0 %>
+		<table>
+			<thead>
+				<tr>
+					<th>Ingredient ID</th><th>Name</th><th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @ingredients.each do |i| %>
+				<tr>
+					<td><%= i.ingredient_id %></td><td><%= Ingredient.exists?(i.ingredient_id) ? link_to(i.name,"ingredients/"+i.ingredient_id.to_s) : i.name %></td><td><%= i.u_price %> €</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </section>
