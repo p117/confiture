@@ -12,6 +12,7 @@
   <table>
   	<thead>
   		<tr>
+        <th> Ingredient ID</th>
   			<th>Ingredient name</th>
   			<th>Unit price</th>
   			<th>Amount</th>
@@ -20,7 +21,8 @@
   	<tbody>
   		<% @product_lines.each do |line| %>
   		<tr>
-  			<td><%= line.ingredient.name %></td>
+        <td><%= line.ingredient.id %></td>
+  			<td><%= link_to(line.ingredient.name,"/ingredients/"+line.ingredient.id.to_s) %></td>
   		    <td><%= line.ingredient.u_price %></td>
   		    <td><%= line.amount %></td>
   		</tr>
