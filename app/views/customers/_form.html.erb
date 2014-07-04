@@ -28,4 +28,7 @@
 	<%= customer_form.submit %>
 </p>
 <% end %>
+<% if @customer.persisted? %>
+	<%= link_to 'Back to the customer page', customer_url(:id => @customer.id), class: "btn" %>
+	<% end %>
 <%= link_to 'Back to customers list', customers_path, class: "btn" %>

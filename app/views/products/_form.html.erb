@@ -51,5 +51,8 @@
 		<%= product_form.submit %>
 	</p>
 	<% end %>
+	<% if @product.persisted? %>
+	<%= link_to 'Back to the product page', product_url(:id => @product.id), class: "btn" %>
+	<% end %>
 	<%= link_to 'Back to products list', products_path, class: "btn" %>
 </div>

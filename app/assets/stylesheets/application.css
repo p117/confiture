@@ -42,16 +42,19 @@ hr{
 }
 .btn{
 	background: #428bca;
-	color: #333333;
+	/*color: #333333;*/
+	color: white;
 }
 .btn:hover{
 	color: white !important;
+	background: grey;
 }
 input[type=submit]{
 	border: 1px solid #333333;
 	background: #428bca;
 	padding: 6px 12px;
 	border-radius: 4px;
+	color: white;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -59,6 +62,7 @@ input[type=submit]{
 }
 input[type=submit]:hover{
 	color: white;
+	border: 1px solid white;
 }
 thead{background-color:#bbb;}
 section.pull-left{margin:0 5%;}
@@ -82,4 +86,27 @@ div.res{
 table.tab-res{
 	width: 50%;
 	float: left;
+}
+table td a:hover{
+	text-decoration: none;
+	color: white;
+	background: grey;
+}
+a.show{
+	background: #428bca;
+	border-radius: 4px;
+	color: white;
+	padding: 5px;
+}
+a.edit{
+background: orange;
+	border-radius: 4px;
+	color: white;
+	padding: 5px;
+}
+a.delete{
+background: red;
+	border-radius: 4px;
+	color: white;
+	padding: 5px;
 }

@@ -1,14 +1,15 @@
 <h1>Customer details</h1><hr/>
 
-<h2><strong>Name : </strong></h2><%= @customer.name %>
+<h3>Name : <strong><%= @customer.name %></strong></h3>
 
-  <h2><strong>Email adress : </strong></h2><%= @customer.email %>
+  <h4>Email adress : <strong><%= @customer.email %></strong></h4>
 
-  <h2><strong>Phone number : </strong></h2><%= @customer.phone %>
+  <h4>Phone number : <strong><%= @customer.phone %></strong></h4>
 
   <hr/>
 
-<%= link_to "Customers list", {controller: "customers"}, class: "btn" %> 
+<%= link_to "Back to customers list", {controller: "customers"}, class: "btn" %> 
+<%= link_to "Edit this customer", edit_customer_url(), class: "btn" %> 
 <%= link_to "New customer", new_customer_url(), class: "btn" %> 
 <%= link_to 'Delete this customer', customer_url(:id => @customer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 

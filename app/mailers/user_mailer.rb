@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def confiture_email(customer)
   	@customer = customer
-  	p @customer.email
     mail(to: @customer.email, subject: 'We are going to product new confitures !')
   end
 end

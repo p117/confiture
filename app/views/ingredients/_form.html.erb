@@ -24,4 +24,7 @@
 	<%= ingredient_form.submit %>
 </p>
 <% end %>
+<% if @ingredient.persisted? %>
+	<%= link_to 'Back to the ingredient page', ingredient_url(:id => @ingredient.id), class: "btn" %>
+	<% end %>
 <%= link_to 'Back to ingredients list', ingredients_path, class: "btn" %>

@@ -13,9 +13,9 @@
 	<tr>
 		<td><%= ingredient.name %></td>
 		<td><%= ingredient.created_at %></td>
-		<td><%= link_to 'Show', ingredient %></td>
-		<td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-		<td><%= link_to 'Delete', ingredient_url(:id => ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Show', ingredient, class: "show" %></td>
+		<td><%= link_to 'Edit', edit_ingredient_path(ingredient), class: "edit" %></td>
+		<td><%= link_to 'Delete', ingredient_url(:id => ingredient.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %></td>
 	</tr>
 	<% end %>
 	</tbody>

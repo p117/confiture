@@ -13,9 +13,9 @@
 			<tr>
 				<td><%= customer.name %></td>
 				<td><%= customer.created_at %></td>
-				<td><%= link_to 'Show', customer %></td>
-				<td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-				<td><%= link_to 'Delete', customer_url(:id => customer.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Show', customer, class: "show" %></td>
+				<td><%= link_to 'Edit', edit_customer_path(customer), class: "edit" %></td>
+				<td><%= link_to 'Delete', customer_url(:id => customer.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %></td>
 			</tr>
 			<% end %>
 			</tbody>

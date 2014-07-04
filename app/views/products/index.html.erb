@@ -13,9 +13,9 @@
 	<tr>
 		<td><%= product.name %></td>
 		<td><%= product.created_at %></td>
-		<td><%= link_to 'Show', product %></td>
-		<td><%= link_to 'Edit', edit_product_path(product) %></td>
-		<td><%= link_to 'Delete', product_url(:id => product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Show', product, class: "show" %></td>
+		<td><%= link_to 'Edit', edit_product_path(product), class: "edit" %></td>
+		<td><%= link_to 'Delete', product_url(:id => product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %></td>
 	</tr>
 	<% end %>
 	</tbody>

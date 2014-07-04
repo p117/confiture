@@ -13,9 +13,9 @@
 	<tr>
 		<td><%= jar.text %></td>
 		<td><%= jar.created_at %></td>
-		<td><%= link_to 'Show', jar %></td>
-		<td><%= link_to 'Edit', edit_jar_path(jar) %></td>
-		<td><%= link_to 'Delete', jar_url(:id => jar.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Show', jar, class: "show" %></td>
+		<td><%= link_to 'Edit', edit_jar_path(jar), class: "edit" %></td>
+		<td><%= link_to 'Delete', jar_url(:id => jar.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %></td>
 	</tr>
 	<% end %>
 	</tbody>

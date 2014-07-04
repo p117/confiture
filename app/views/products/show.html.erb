@@ -31,8 +31,9 @@
 <div class="clr"></div>
     <hr/>
 
-<%= link_to "Products list", {controller: "products"}, class: "btn" %> 
+<%= link_to "Back to products list", {controller: "products"}, class: "btn" %> 
 <%= link_to "New product", new_product_url(), class: "btn" %> 
+<%= link_to "Edit this product", edit_product_url(), class: "btn" %> 
 <%= link_to 'Delete this product', product_url(:id => @product.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 
 

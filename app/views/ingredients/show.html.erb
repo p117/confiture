@@ -1,12 +1,13 @@
 <h1>Ingredient details</h1><hr/>
 
-<h2><strong>Name : </strong></h2><%= @ingredient.name %>
+<h3>Name : <strong><%= @ingredient.name %></strong></h3>
 
-  <h2><strong>Unit price : </strong></h2><%= @ingredient.u_price %>
+  <h4>Unit price : <strong><%= @ingredient.u_price %> €</strong></h4>
 
   <hr/>
 
 <%= link_to "Back to ingredients list", {controller: "ingredients"}, class: "btn" %>
+<%= link_to "Edit this ingredient", edit_ingredient_url(), class: "btn" %> 
 <%= link_to "New ingredient", new_ingredient_url(), class: "btn" %> 
 <%= link_to 'Delete this ingredient', ingredient_url(:id => @ingredient.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
 
