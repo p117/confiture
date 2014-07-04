@@ -2,7 +2,7 @@
 
 <h3>Order N°<strong><%= @order.id %></strong></h3>
 
-  <h3>Customer : <strong><%= @customer.name %></strong></h3>
+  <h3>Customer : <strong><%= link_to(@order.customer.name, customer_path(@order.customer.id))%></strong></h3>
 
   <h3>Date : <%= @customer.created_at %></h3>
 

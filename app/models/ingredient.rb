@@ -3,7 +3,6 @@ class Ingredient < ActiveRecord::Base
 	has_many :products, through: :product_lines, :dependent => :destroy
   #has_many :ingredient_historics, :dependent => :delete_all
 
-
 	validates :name, presence: true
 	validates :u_price, presence: true
 
