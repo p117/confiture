@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
-	has_many :order_lines, :dependent => :delete_all
-	has_many :orders, through: :order_lines
+	has_many :order_lines
+	has_many :orders, :dependent => :delete_all
 
 	validates :name, presence: true
 	validates :email, presence: true

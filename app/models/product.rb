@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   belongs_to :jar
   has_many :order_lines
   has_many :orders, through: :order_lines
+  #has_many :product_historics, :dependent => :delete_all
 
   validates :name , presence: true
   validates :u_price , presence: true
