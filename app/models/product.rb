@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   has_many :ingredients, through: :product_lines
   belongs_to :jar
   has_many :order_lines
-  has_many :orders, through: :order_lines
+  has_many :orders, through: :order_lines, :dependent => :destroy
   #has_many :product_historics, :dependent => :delete_all
 
   validates :name , presence: true
