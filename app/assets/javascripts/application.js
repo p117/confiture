@@ -16,6 +16,6 @@
 //= require bootstrap
 //= require_tree .
 
-$(document).ready(function(){
-	$('main').css("min-height",$(document).height()-125);
-});
+// $(document).ready(function(){
+// 	$('main').css("min-height",$(document).height()-125);
+// });
